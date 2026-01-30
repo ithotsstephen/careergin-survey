@@ -506,7 +506,7 @@ h2 { font-size: 20px; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
                         <input type="text" name="answers[]" placeholder="Answer option 2">
                     </div>
                 </div>
-                <button type="button" onclick="addAnswerField()" class="btn btn-small">+ Add More Options</button>
+                <button type="button" id="addMoreOptionsBtn" class="btn btn-small">+ Add More Options</button>
             </div>
             
             <button type="submit" name="add_question" class="btn">Add Question</button>
@@ -651,13 +651,52 @@ h2 { font-size: 20px; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
 </div>
 
 <script>
-function addAnswerField() {
+// Test that script is loading
+console.log('manage_questions.php script loaded');
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM ready');
     const container = document.getElementById('answersList');
-    const count = container.children.length + 1;
-    const div = document.createElement('div');
-    div.className = 'answer-input-row';
-    div.innerHTML = '<input type="text" name="answers[]" placeholder="Answer option ' + count + '">';
-    container.appendChild(div);
+    console.log('answersList found:', container !== null);
+    
+    // Test the button exists
+    const addBtn = document.getElementById('addMoreOptionsBtn');
+    console.log('Add More Options button found:', addBtn !== null);
+    
+    // Add event listener to the button
+    if (addBtn) {
+        addBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Button clicked via event listener');
+            addAnswerField();
+        });
+    }
+});
+
+function addAnswerField() {
+    console.log('addAnswerField called');
+    try {
+        const container = document.getElementById('answersList');
+        if (!container) {
+            console.error('answersList container not found');
+            alert('Error: Container not found. Please refresh the page.');
+            return;
+        }
+        const count = container.children.length + 1;
+        const div = document.createElement('div');
+        div.className = 'answer-input-row';
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'answers[]';
+        input.placeholder = 'Answer option ' + count;
+        div.appendChild(input);
+        container.appendChild(div);
+        console.log('Added answer field #' + count);
+    } catch (error) {
+        console.error('Error in addAnswerField:', error);
+        alert('Error adding field: ' + error.message);
+    }
 }
 
 // Edit Question
@@ -864,7 +903,8 @@ function handleQuestionDrop(e) {
     return false;
 }
 
-// Answer drag handlersfunction handleDragStart(e) {
+// Answer drag handlers
+function handleDragStart(e) {
     draggedElement = this;
     this.classList.add('dragging');
     e.dataTransfer.effectAllowed = 'move';

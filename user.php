@@ -257,18 +257,24 @@ h2 {
                 // Hide age and education fields when Parent is selected
                 ageGroup.style.display = 'none';
                 educationGroup.style.display = 'none';
-                // Remove required attribute and clear values
+                // Disable fields and remove validation constraints
+                ageInput.disabled = true;
+                educationInput.disabled = true;
                 ageInput.removeAttribute('required');
                 educationInput.removeAttribute('required');
+                ageInput.removeAttribute('min');
                 ageInput.value = '0';
                 educationInput.value = 'N/A';
             } else if (studentRadio.checked) {
                 // Show age and education fields when Student is selected
                 ageGroup.style.display = 'block';
                 educationGroup.style.display = 'block';
-                // Add required attribute back
+                // Enable fields and restore validation constraints
+                ageInput.disabled = false;
+                educationInput.disabled = false;
                 ageInput.setAttribute('required', 'required');
                 educationInput.setAttribute('required', 'required');
+                ageInput.setAttribute('min', '1');
                 // Clear the default values if they were set
                 if (ageInput.value === '0') ageInput.value = '';
                 if (educationInput.value === 'N/A') educationInput.value = '';
