@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Database Setup Helper</title>
+<style>
+body{font-family:Arial;max-width:800px;margin:50px auto;padding:20px;background:#f5f5f5}
+.card{background:white;padding:30px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);margin-bottom:20px}
+h1{color:#333;border-bottom:3px solid #4CAF50;padding-bottom:10px}
+h2{color:#4CAF50;margin-top:30px}
+.step{background:#e8f5e9;padding:15px;border-left:4px solid #4CAF50;margin:15px 0}
+.code{background:#263238;color:#aed581;padding:15px;border-radius:5px;overflow-x:auto;font-family:monospace}
+.warning{background:#fff3cd;border-left:4px solid #ffc107;padding:15px;margin:15px 0}
+.error{background:#fee;border-left:4px solid #c33;padding:15px;margin:15px 0;color:#c33}
+.success{background:#d4edda;border-left:4px solid #28a745;padding:15px;margin:15px 0;color:#155724}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+td{padding:10px;border:1px solid #ddd}
+td:first-child{background:#f8f9fa;font-weight:bold;width:200px}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>🔧 Database Configuration Helper</h1>
+<p>Your survey application needs the correct database credentials to work.</p>
+
+<div class="error">
+<strong>Current Error:</strong> Access denied for user 'carergsurvey'@'localhost'
+</div>
+
+<h2>📋 Step 1: Find Your Database Credentials</h2>
+<div class="step">
+<p><strong>For Hostinger/cPanel hosting:</strong></p>
+<ol>
+<li>Login to your hosting control panel (cPanel/hPanel)</li>
+<li>Go to <strong>Databases</strong> section</li>
+<li>Click on <strong>MySQL Databases</strong> or <strong>phpMyAdmin</strong></li>
+<li>Note down your credentials (they usually follow this format):</li>
+</ol>
+</div>
+
+<table>
+<tr>
+<td>Database Host</td>
+<td>localhost (or sometimes an IP address)</td>
+</tr>
+<tr>
+<td>Database Username</td>
+<td>u433951778_xxxxx (where xxxxx is your database user)</td>
+</tr>
+<tr>
+<td>Database Name</td>
+<td>u433951778_xxxxx (where xxxxx is your database name)</td>
+</tr>
+<tr>
+<td>Database Password</td>
+<td>The password you set when creating the database</td>
+</tr>
+</table>
+
+<h2>📝 Step 2: Update Configuration File</h2>
+<div class="step">
+<p>Edit the file: <code><strong>includes/config.php</strong></code></p>
+<p>Update these lines with your actual credentials:</p>
+</div>
+
+<div class="code">
+define('DB_HOST', 'localhost');<br>
+define('DB_USER', '<span style="color:#ffc107">u433951778_youruser</span>');  // ← Update this<br>
+define('DB_PASS', '<span style="color:#ffc107">your_password</span>');      // ← Update this<br>
+define('DB_NAME', '<span style="color:#ffc107">u433951778_yourdb</span>');    // ← Update this
+</div>
+
+<h2>🔍 Step 3: Common Issues & Solutions</h2>
+
+<div class="warning">
+<strong>Issue 1: User prefix mismatch</strong><br>
+Make sure your username and database name both start with <code>u433951778_</code> (your account ID)
+</div>
+
+<div class="warning">
+<strong>Issue 2: Wrong password</strong><br>
+If you forgot your database password:
+<ul>
+<li>Go to MySQL Databases in cPanel</li>
+<li>Find your user</li>
+<li>Click "Change Password"</li>
+</ul>
+</div>
+
+<div class="warning">
+<strong>Issue 3: User doesn't have permissions</strong><br>
+In cPanel MySQL Databases:
+<ul>
+<li>Scroll to "Add User to Database"</li>
+<li>Select your user and database</li>
+<li>Click "Add"</li>
+<li>Grant ALL PRIVILEGES</li>
+</ul>
+</div>
+
+<h2>✅ Step 4: Test Connection</h2>
+<div class="step">
+<p>After updating config.php, visit:</p>
+<p><a href="test_db.php" style="color:#4CAF50;font-weight:bold">test_db.php</a> - This will test your database connection</p>
+</div>
+
+<h2>📞 Need More Help?</h2>
+<div class="step">
+<p>If you're still having issues, you can:</p>
+<ul>
+<li>Check your hosting provider's documentation</li>
+<li>Contact your hosting support with this error message</li>
+<li>Use phpMyAdmin to verify your database exists and you can login</li>
+</ul>
+</div>
+
+</div>
+
+</body>
+</html>
