@@ -97,8 +97,8 @@ h1 {
     <div class="logo">
         <img src="https://careerg.in/assets/CareergLogo-BvzyUmlH.png" alt="CareerG">
     </div>
-    <h1>Welcome to Our Survey</h1>
-    <p class="subtitle">Help us understand your career preferences and interests</p>
+    <h1>SCR Survey 2026</h1>
+    <p class="subtitle">Understand your Readiness. Shape Your Career Future</p>
     <a href="check.php" class="btn-start">Start Survey</a>
     <div class="features">
         <div class="feature">Takes only 2-3 minutes</div>

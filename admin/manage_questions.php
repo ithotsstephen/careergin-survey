@@ -426,6 +426,7 @@ h2 { font-size: 20px; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
     </div>
     <div class="nav">
         <a href="dashboard.php">Dashboard</a>
+        <a href="view_users.php">Users</a>
         <a href="manage_questions.php">Questions</a>
         <a href="view_responses.php">Responses</a>
         <a href="export_data.php">Export</a>
@@ -475,14 +476,18 @@ h2 { font-size: 20px; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
             
             <div class="form-group">
                 <label>This question is for:</label>
-                <div style="display: flex; gap: 20px; padding: 10px 0;">
+                <div style="display: flex; gap: 20px; padding: 10px 0; flex-wrap: wrap;">
                     <label style="display: flex; align-items: center; cursor: pointer;">
                         <input type="radio" name="target_role" value="Parent" style="margin-right: 8px;">
                         <span>Parent</span>
                     </label>
                     <label style="display: flex; align-items: center; cursor: pointer;">
-                        <input type="radio" name="target_role" value="Student" style="margin-right: 8px;">
-                        <span>Student</span>
+                        <input type="radio" name="target_role" value="School Student" style="margin-right: 8px;">
+                        <span>School Student</span>
+                    </label>
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="target_role" value="College Student" style="margin-right: 8px;">
+                        <span>College Student</span>
                     </label>
                     <label style="display: flex; align-items: center; cursor: pointer;">
                         <input type="radio" name="target_role" value="Both" checked style="margin-right: 8px;">
@@ -530,7 +535,7 @@ h2 { font-size: 20px; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
                 <span class="question-text"><?php echo htmlspecialchars($q['question_text']); ?></span>
                 <span class="badge"><?php echo strtoupper($q['answer_type']); ?></span>
                 <span class="badge" style="background: <?php 
-                    echo $role === 'Parent' ? '#FF9800' : ($role === 'Student' ? '#2196F3' : '#4CAF50'); 
+                    echo $role === 'Parent' ? '#FF9800' : ($role === 'School Student' ? '#2196F3' : ($role === 'College Student' ? '#9C27B0' : '#4CAF50')); 
                 ?>;"><?php echo $role; ?></span>
                 <span class="badge">Order: <?php echo $q['order_no']; ?></span>
             </h4>
@@ -725,8 +730,10 @@ function editQuestion(questionId) {
             // Set role radio
             if(role === 'Parent') {
                 document.getElementById('edit_role_parent').checked = true;
-            } else if(role === 'Student') {
-                document.getElementById('edit_role_student').checked = true;
+            } else if(role === 'School Student') {
+                document.getElementById('edit_role_school_student').checked = true;
+            } else if(role === 'College Student') {
+                document.getElementById('edit_role_college_student').checked = true;
             } else {
                 document.getElementById('edit_role_both').checked = true;
             }

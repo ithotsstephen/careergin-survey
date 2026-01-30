@@ -165,6 +165,7 @@ body{font-family:Arial;margin:0;padding:0}
 
 <div class="menu">
 <h3>Quick Actions</h3>
+<a href="view_users.php">View Users</a>
 <a href="view_responses.php">View Responses</a>
 <a href="manage_questions.php">Manage Questions</a>
 <a href="export_data.php">Export Data</a>

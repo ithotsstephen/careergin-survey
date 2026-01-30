@@ -22,18 +22,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     error_log("Survey User Form Submitted: Name=$name, Phone=$phone, Email=$email, Age=$age, Role=$role");
     
     // If Parent is selected, Age and Education are not required
-    $isParent = ($role === 'Parent');
+    $skipFields = ($role === 'Parent');
     
     // Validate based on role
     if(empty($phone) || empty($name) || empty($email) || empty($role)){
         $error_message = 'Please fill all required fields correctly.';
         error_log("Survey User Form Validation Failed");
-    } elseif(!$isParent && ($age < 1 || empty($education))){
+    } elseif(!$skipFields && ($age < 1 || empty($education))){
         $error_message = 'Please provide your age and education.';
         error_log("Survey User Form Validation Failed - Student missing age/education");
     } else {
         // Set default values for parents
-        if($isParent){
+        if($skipFields){
             $age = 0;
             $education = 'N/A';
         }
@@ -219,14 +219,18 @@ h2 {
         
         <div class="form-group">
             <label>👥 I am a *</label>
-            <div style="display: flex; gap: 20px; padding: 10px 0;">
+            <div style="display: flex; gap: 20px; padding: 10px 0; flex-wrap: wrap;">
                 <label style="display: flex; align-items: center; cursor: pointer;">
                     <input type="radio" id="parent" name="role" value="Parent" required style="width: auto; margin-right: 8px;">
                     <span>Parent</span>
                 </label>
                 <label style="display: flex; align-items: center; cursor: pointer;">
-                    <input type="radio" id="student" name="role" value="Student" required style="width: auto; margin-right: 8px;">
-                    <span>Student</span>
+                    <input type="radio" id="school_student" name="role" value="School Student" required style="width: auto; margin-right: 8px;">
+                    <span>School Student</span>
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer;">
+                    <input type="radio" id="college_student" name="role" value="College Student" required style="width: auto; margin-right: 8px;">
+                    <span>College Student</span>
                 </label>
             </div>
         </div>
@@ -246,7 +250,8 @@ h2 {
     
     <script>
         const parentRadio = document.getElementById('parent');
-        const studentRadio = document.getElementById('student');
+        const schoolStudentRadio = document.getElementById('school_student');
+        const collegeStudentRadio = document.getElementById('college_student');
         const ageGroup = document.getElementById('age-group');
         const educationGroup = document.getElementById('education-group');
         const ageInput = document.getElementById('age');
@@ -265,7 +270,7 @@ h2 {
                 ageInput.removeAttribute('min');
                 ageInput.value = '0';
                 educationInput.value = 'N/A';
-            } else if (studentRadio.checked) {
+            } else if (schoolStudentRadio.checked || collegeStudentRadio.checked) {
                 // Show age and education fields when Student is selected
                 ageGroup.style.display = 'block';
                 educationGroup.style.display = 'block';
@@ -283,7 +288,8 @@ h2 {
         
         // Add event listeners
         parentRadio.addEventListener('change', toggleFields);
-        studentRadio.addEventListener('change', toggleFields);
+        schoolStudentRadio.addEventListener('change', toggleFields);
+        collegeStudentRadio.addEventListener('change', toggleFields);
         
         // Check on page load in case there's a pre-selected value
         toggleFields();
