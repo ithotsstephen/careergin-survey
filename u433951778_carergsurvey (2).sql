@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 30, 2026 at 09:36 AM
+-- Generation Time: Jan 30, 2026 at 10:33 AM
 -- Server version: 11.8.3-MariaDB-log
 -- PHP Version: 7.2.34
--- CORRECTED: School Student and College Student questions separated
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -412,37 +411,34 @@ CREATE TABLE `questions` (
 
 --
 -- Dumping data for table `questions`
--- CORRECTED: Questions 38-64 are for School Students
--- Questions 65-86 are for College Students
--- Questions 87-112 are for Parents
 --
 
 INSERT INTO `questions` (`id`, `survey_id`, `question_text`, `answer_type`, `target_role`, `order_no`) VALUES
-(38, 1, 'When someone asks, "What are you good at?" how confident do you feel answering?', 'radio', 'School Student', 1),
+(38, 1, 'When someone asks, “What are you good at?” how confident do you feel answering?', 'radio', 'School Student', 1),
 (39, 1, 'I feel I understand myself better than most people my age.', 'radio', 'School Student', 2),
 (40, 1, 'I often feel confused about what kind of person I am becoming.', 'radio', 'School Student', 3),
-(42, 1, 'I know my natural strengths beyond studies (communication, creativity, leadership, etc.).', 'radio', 'School Student', 4),
-(43, 1, 'I feel confident in my abilities even when compared with others.', 'radio', 'School Student', 5),
-(45, 1, 'When I succeed, I know why I succeeded.', 'radio', 'School Student', 6),
-(46, 1, 'I clearly know what activities make me feel excited and energetic.', 'radio', 'School Student', 7),
-(47, 1, 'I enjoy learning things outside school syllabus on my own.', 'radio', 'School Student', 8),
-(48, 1, 'Sometimes I feel interested in things that adults around me don't value much.', 'radio', 'School Student', 9),
-(49, 1, 'I feel confused about choosing the "right" stream or future path.', 'radio', 'School Student', 10),
-(50, 1, 'I worry about making a wrong decision that I cannot change later.', 'radio', 'School Student', 11),
-(51, 1, 'I feel pressured to choose something even before I fully understand myself.', 'radio', 'School Student', 12),
-(52, 1, 'I know about multiple career options beyond common ones.', 'radio', 'School Student', 13),
-(53, 1, 'I understand what different careers actually involve in real life.', 'radio', 'School Student', 14),
-(54, 1, 'I feel school teaches me enough about real career choices.', 'radio', 'School Student', 15),
-(55, 1, 'I feel stressed when thinking about my future.', 'radio', 'School Student', 16),
-(56, 1, 'I feel scared of disappointing my parents or family.', 'radio', 'School Student', 17),
-(57, 1, 'I compare myself with friends and feel anxious.', 'radio', 'School Student', 18),
-(58, 1, 'I can clearly imagine myself 10 years from now.', 'radio', 'School Student', 19),
-(59, 1, 'My future feels exciting rather than scary.', 'radio', 'School Student', 20),
-(60, 1, 'If given guidance, I believe I can do well in life.', 'radio', 'School Student', 21),
-(61, 1, 'I wish someone explained careers in a simple, honest way.', 'radio', 'School Student', 22),
-(62, 1, 'I want guidance that understands me, not just my marks.', 'radio', 'School Student', 23),
-(63, 1, 'I feel confident about who I am becoming as a person.', 'radio', 'School Student', 24),
-(64, 1, 'Which statement best describes you right now?', 'radio', 'School Student', 25),
+(42, 1, 'I know my natural strengths beyond studies (communication, creativity, leadership, etc.).', 'radio', 'School Student', 5),
+(43, 1, 'I feel confident in my abilities even when compared with others.', 'radio', 'School Student', 6),
+(45, 1, 'When I succeed, I know why I succeeded.', 'radio', 'School Student', 8),
+(46, 1, 'I clearly know what activities make me feel excited and energetic.', 'radio', 'School Student', 9),
+(47, 1, 'I enjoy learning things outside school syllabus on my own.', 'radio', 'School Student', 10),
+(48, 1, 'Sometimes I feel interested in things that adults around me don’t value much.', 'radio', 'School Student', 11),
+(49, 1, 'I feel confused about choosing the “right” stream or future path.', 'radio', 'School Student', 12),
+(50, 1, 'I worry about making a wrong decision that I cannot change later.', 'radio', 'School Student', 13),
+(51, 1, 'I feel pressured to choose something even before I fully understand myself.', 'radio', 'School Student', 14),
+(52, 1, 'I know about multiple career options beyond common ones.', 'radio', 'School Student', 15),
+(53, 1, 'I understand what different careers actually involve in real life.', 'radio', 'School Student', 16),
+(54, 1, 'I feel school teaches me enough about real career choices.', 'radio', 'School Student', 17),
+(55, 1, 'I feel stressed when thinking about my future.', 'radio', 'School Student', 18),
+(56, 1, 'I feel scared of disappointing my parents or family.', 'radio', 'School Student', 19),
+(57, 1, 'I compare myself with friends and feel anxious.', 'radio', 'School Student', 20),
+(58, 1, 'I can clearly imagine myself 10 years from now.', 'radio', 'School Student', 21),
+(59, 1, 'My future feels exciting rather than scary.', 'radio', 'School Student', 22),
+(60, 1, 'If given guidance, I believe I can do well in life.', 'radio', 'School Student', 23),
+(61, 1, 'I wish someone explained careers in a simple, honest way.', 'radio', 'School Student', 24),
+(62, 1, 'I want guidance that understands me, not just my marks.', 'radio', 'School Student', 25),
+(63, 1, 'I feel confident about who I am becoming as a person.', 'radio', 'College Student', 26),
+(64, 1, 'Which statement best describes you right now?', 'radio', 'School Student', 27),
 (65, 1, 'I feel clear about the direction my life is moving in.', 'radio', 'College Student', 26),
 (66, 1, 'Sometimes I feel I am just following a path chosen earlier without clarity.', 'radio', 'College Student', 27),
 (67, 1, 'I am confident about the skills I can offer to the real world.', 'radio', 'College Student', 28),
@@ -451,14 +447,14 @@ INSERT INTO `questions` (`id`, `survey_id`, `question_text`, `answer_type`, `tar
 (70, 1, 'My current course fully matches my interests.', 'radio', 'College Student', 31),
 (71, 1, 'I sometimes regret my course choice.', 'radio', 'College Student', 32),
 (72, 1, 'I chose my course mainly due to', 'radio', 'College Student', 33),
-(73, 1, 'I feel anxious about getting the "right" career after college.', 'radio', 'College Student', 34),
-(74, 1, 'I fear being stuck in a job I don't like.', 'radio', 'College Student', 35),
+(73, 1, 'I feel anxious about getting the “right” career after college.', 'radio', 'College Student', 34),
+(74, 1, 'I fear being stuck in a job I don’t like.', 'radio', 'College Student', 35),
 (75, 1, 'I worry about competition and job market uncertainty.', 'radio', 'College Student', 36),
 (76, 1, 'My career decisions are strongly influenced by family expectations.', 'radio', 'College Student', 37),
 (77, 1, 'I compare my progress with peers and feel pressure.', 'radio', 'College Student', 38),
 (78, 1, 'I feel comfortable discussing my confusion openly with family.', 'radio', 'College Student', 39),
 (79, 1, 'I fear changing direction even if I feel unsure now.', 'radio', 'College Student', 40),
-(80, 1, 'I feel it is "too late" to rethink my career path.', 'radio', 'College Student', 41),
+(80, 1, 'I feel it is “too late” to rethink my career path.', 'radio', 'College Student', 41),
 (81, 1, 'I wish I had better guidance earlier.', 'radio', 'College Student', 42),
 (82, 1, 'I understand how my skills match real industry needs.', 'radio', 'College Student', 43),
 (83, 1, 'I feel confused by too many career options and advice online.', 'radio', 'College Student', 44),
@@ -485,11 +481,11 @@ INSERT INTO `questions` (`id`, `survey_id`, `question_text`, `answer_type`, `tar
 (104, 1, 'How much pressure do you feel from family/society regarding your teen\'s career choice?', 'radio', 'Parent', 65),
 (105, 1, 'Seeing your teen stressed about career decisions makes you:', 'radio', 'Parent', 66),
 (106, 1, 'In 10 years, what would you consider a \"successful\" outcome of this career decision?', 'radio', 'Parent', 67),
-(108, 1, 'How important is \"passion\" versus \"practicality\" in your view?', 'radio', 'Parent', 68),
-(109, 1, 'Do you believe the career your teen chooses now is for life?', 'radio', 'Parent', 69),
-(110, 1, 'What support do you feel YOU need most right now?', 'radio', 'Parent', 70),
-(111, 1, 'When should serious career planning ideally begin?', 'radio', 'Parent', 71),
-(112, 1, 'Ultimately, my role as a parent in this process should be:', 'radio', 'Parent', 72);
+(108, 1, 'How important is \"passion\" versus \"practicality\" in your view?', 'radio', 'Parent', 69),
+(109, 1, 'Do you believe the career your teen chooses now is for life?', 'radio', 'Parent', 70),
+(110, 1, 'What support do you feel YOU need most right now?', 'radio', 'Parent', 71),
+(111, 1, 'When should serious career planning ideally begin?', 'radio', 'Parent', 72),
+(112, 1, 'Ultimately, my role as a parent in this process should be:', 'radio', 'Parent', 73);
 
 -- --------------------------------------------------------
 
@@ -549,7 +545,13 @@ INSERT INTO `users` (`id`, `phone`, `name`, `email`, `age`, `education`, `role`,
 (14, '9487848989', 'sujitha', 'sujimeenu@gmail.com', 0, 'N/A', 'Parent', '2026-01-30 09:07:56'),
 (15, '9823134242', 'sarah', 'sarah@gmail.com', 0, 'N/A', 'Parent', '2026-01-30 09:15:34'),
 (16, '9823134242', 'sarah', 'sarah@gmail.com', 0, 'N/A', 'Parent', '2026-01-30 09:16:43'),
-(17, '9823134242', 'sarah', 'sarah@gmail.com', 14, '9', '', '2026-01-30 09:27:57');
+(17, '9823134242', 'sarah', 'sarah@gmail.com', 14, '9', '', '2026-01-30 09:27:57'),
+(18, '09500813038', 'vishnu priya S', 'priya.vishnu059@gmail.com', 24, 'Masters', 'College Student', '2026-01-30 10:00:01'),
+(19, '09500813038', 'vishnu priya S', 'priya.vishnu059@gmail.com', 24, 'Masters', 'School Student', '2026-01-30 10:00:16'),
+(20, '9823134242', 'sarah', 'sarah@gmail.com', 14, '9', 'School Student', '2026-01-30 10:01:55'),
+(21, '9823134242', 'sarah', 'sarah@gmail.com', 21, 'bg', 'College Student', '2026-01-30 10:08:00'),
+(22, '09500813038', 'vishnu priya S', 'priya.vishnu059@gmail.com', 12, '7th', 'School Student', '2026-01-30 10:09:49'),
+(23, '09500813038', 'vishnu priya S', 'priya.vishnu059@gmail.com', 21, 'Masters', 'College Student', '2026-01-30 10:14:06');
 
 -- --------------------------------------------------------
 
@@ -631,9 +633,103 @@ INSERT INTO `user_answers` (`id`, `user_id`, `survey_id`, `question_id`, `answer
 (96, 17, 1, 59, 242, '2026-01-30 09:30:54'),
 (97, 17, 1, 60, 248, '2026-01-30 09:31:00'),
 (98, 17, 1, 61, 252, '2026-01-30 09:31:07'),
-(101, 17, 1, 62, 259, '2026-01-30 09:32:04'),
-(102, 17, 1, 63, 262, '2026-01-30 09:32:07'),
-(103, 17, 1, 64, 266, '2026-01-30 09:32:20');
+(106, 17, 1, 62, 259, '2026-01-30 09:41:40'),
+(107, 17, 1, 63, 262, '2026-01-30 09:41:45'),
+(108, 17, 1, 64, 266, '2026-01-30 09:41:50'),
+(109, 17, 1, 65, 271, '2026-01-30 09:41:56'),
+(110, 17, 1, 66, 276, '2026-01-30 09:42:02'),
+(111, 17, 1, 67, 281, '2026-01-30 09:42:12'),
+(112, 17, 1, 68, 286, '2026-01-30 09:42:26'),
+(113, 17, 1, 69, 291, '2026-01-30 09:42:33'),
+(114, 17, 1, 70, 296, '2026-01-30 09:42:40'),
+(115, 17, 1, 71, 301, '2026-01-30 09:42:47'),
+(116, 17, 1, 72, 305, '2026-01-30 09:43:13'),
+(117, 17, 1, 73, 311, '2026-01-30 09:43:23'),
+(118, 17, 1, 74, 316, '2026-01-30 09:43:28'),
+(119, 17, 1, 75, 321, '2026-01-30 09:44:14'),
+(120, 17, 1, 76, 326, '2026-01-30 09:44:43'),
+(121, 17, 1, 77, 331, '2026-01-30 09:44:51'),
+(122, 17, 1, 78, 336, '2026-01-30 09:45:00'),
+(123, 17, 1, 79, 341, '2026-01-30 09:45:08'),
+(124, 17, 1, 80, 346, '2026-01-30 09:45:15'),
+(126, 17, 1, 81, 351, '2026-01-30 09:45:50'),
+(127, 17, 1, 82, 356, '2026-01-30 09:45:59'),
+(128, 17, 1, 83, 361, '2026-01-30 09:46:04'),
+(129, 17, 1, 84, 366, '2026-01-30 09:46:10'),
+(130, 17, 1, 85, 372, '2026-01-30 09:46:18'),
+(131, 17, 1, 86, 376, '2026-01-30 09:46:25'),
+(132, 20, 1, 38, 138, '2026-01-30 10:02:06'),
+(133, 20, 1, 39, 143, '2026-01-30 10:02:10'),
+(134, 20, 1, 40, 147, '2026-01-30 10:02:52'),
+(135, 20, 1, 42, 157, '2026-01-30 10:02:57'),
+(136, 20, 1, 43, 163, '2026-01-30 10:03:01'),
+(137, 20, 1, 45, 173, '2026-01-30 10:03:04'),
+(138, 20, 1, 46, 177, '2026-01-30 10:03:11'),
+(139, 20, 1, 47, 183, '2026-01-30 10:03:15'),
+(140, 20, 1, 48, 188, '2026-01-30 10:03:20'),
+(141, 20, 1, 49, 193, '2026-01-30 10:04:06'),
+(142, 20, 1, 50, 197, '2026-01-30 10:04:10'),
+(143, 20, 1, 51, 204, '2026-01-30 10:04:14'),
+(144, 20, 1, 52, 206, '2026-01-30 10:04:19'),
+(145, 20, 1, 53, 213, '2026-01-30 10:04:26'),
+(146, 20, 1, 54, 217, '2026-01-30 10:04:31'),
+(147, 20, 1, 55, 223, '2026-01-30 10:04:37'),
+(148, 20, 1, 56, 227, '2026-01-30 10:04:41'),
+(149, 20, 1, 57, 232, '2026-01-30 10:04:45'),
+(150, 20, 1, 58, 237, '2026-01-30 10:04:49'),
+(151, 20, 1, 59, 242, '2026-01-30 10:04:55'),
+(152, 20, 1, 60, 247, '2026-01-30 10:04:59'),
+(153, 20, 1, 61, 252, '2026-01-30 10:05:04'),
+(154, 20, 1, 62, 256, '2026-01-30 10:05:08'),
+(157, 20, 1, 63, 262, '2026-01-30 10:06:34'),
+(158, 20, 1, 64, 267, '2026-01-30 10:07:42'),
+(159, 21, 1, 65, 271, '2026-01-30 10:08:48'),
+(160, 21, 1, 66, 276, '2026-01-30 10:08:54'),
+(161, 21, 1, 67, 281, '2026-01-30 10:08:59'),
+(162, 21, 1, 68, 286, '2026-01-30 10:09:02'),
+(163, 21, 1, 69, 292, '2026-01-30 10:09:05'),
+(164, 21, 1, 70, 297, '2026-01-30 10:09:09'),
+(165, 21, 1, 71, 301, '2026-01-30 10:09:12'),
+(166, 21, 1, 72, 306, '2026-01-30 10:09:17'),
+(167, 21, 1, 73, 312, '2026-01-30 10:09:22'),
+(168, 21, 1, 74, 317, '2026-01-30 10:09:26'),
+(169, 21, 1, 75, 320, '2026-01-30 10:09:30'),
+(170, 21, 1, 76, 326, '2026-01-30 10:09:35'),
+(171, 21, 1, 77, 332, '2026-01-30 10:09:38'),
+(172, 21, 1, 78, 336, '2026-01-30 10:09:42'),
+(173, 21, 1, 79, 341, '2026-01-30 10:09:46'),
+(174, 21, 1, 80, 346, '2026-01-30 10:09:50'),
+(175, 21, 1, 81, 351, '2026-01-30 10:09:53'),
+(176, 21, 1, 82, 357, '2026-01-30 10:09:57'),
+(177, 21, 1, 83, 362, '2026-01-30 10:10:01'),
+(178, 21, 1, 84, 366, '2026-01-30 10:10:05'),
+(179, 22, 1, 38, 140, '2026-01-30 10:10:10'),
+(180, 21, 1, 85, 371, '2026-01-30 10:10:10'),
+(181, 22, 1, 39, 142, '2026-01-30 10:10:14'),
+(182, 21, 1, 86, 377, '2026-01-30 10:10:15'),
+(183, 22, 1, 40, 147, '2026-01-30 10:10:17'),
+(184, 22, 1, 42, 157, '2026-01-30 10:10:21'),
+(185, 22, 1, 43, 161, '2026-01-30 10:10:26'),
+(186, 22, 1, 45, 172, '2026-01-30 10:10:30'),
+(187, 22, 1, 46, 176, '2026-01-30 10:10:37'),
+(188, 22, 1, 47, 184, '2026-01-30 10:10:40'),
+(189, 22, 1, 48, 187, '2026-01-30 10:10:43'),
+(190, 22, 1, 49, 193, '2026-01-30 10:10:50'),
+(191, 22, 1, 50, 196, '2026-01-30 10:10:54'),
+(192, 22, 1, 51, 200, '2026-01-30 10:10:58'),
+(193, 22, 1, 52, 208, '2026-01-30 10:11:01'),
+(194, 22, 1, 53, 213, '2026-01-30 10:11:12'),
+(195, 22, 1, 54, 216, '2026-01-30 10:11:15'),
+(196, 22, 1, 55, 221, '2026-01-30 10:11:19'),
+(197, 22, 1, 56, 225, '2026-01-30 10:11:22'),
+(198, 22, 1, 57, 230, '2026-01-30 10:11:27'),
+(199, 22, 1, 58, 237, '2026-01-30 10:11:42'),
+(200, 22, 1, 59, 241, '2026-01-30 10:11:45'),
+(201, 22, 1, 60, 245, '2026-01-30 10:11:48'),
+(202, 22, 1, 61, 250, '2026-01-30 10:11:52'),
+(203, 22, 1, 62, 255, '2026-01-30 10:12:02'),
+(204, 22, 1, 63, 264, '2026-01-30 10:12:08'),
+(205, 22, 1, 64, 268, '2026-01-30 10:13:45');
 
 --
 -- Indexes for dumped tables
@@ -714,13 +810,13 @@ ALTER TABLE `surveys`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user_answers`
 --
 ALTER TABLE `user_answers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 
 --
 -- Constraints for dumped tables

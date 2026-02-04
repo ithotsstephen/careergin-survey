@@ -98,13 +98,14 @@ h1 {
         <img src="https://careerg.in/assets/CareergLogo-BvzyUmlH.png" alt="CareerG">
     </div>
     <h1>SCR Survey 2026</h1>
-    <p class="subtitle">Understand your Readiness. Shape Your Career Future</p>
+    <p class="subtitle">CareerG is conducting a professional student survey to identify confusion related to strengths, interests, career options, and future goals. Students who require support will receive free psychometric assessment and one-to-one guidance at your institution.</p>
     <a href="check.php" class="btn-start">Start Survey</a>
     <div class="features">
         <div class="feature">Takes only 2-3 minutes</div>
         <div class="feature">Your responses are confidential</div>
         <div class="feature">Mobile friendly</div>
     </div>
+      <p class="subtitle">Trusted Career Guidance Organization in India, Serving Students Globally</p>
 </div>
 </body>
 </html>
